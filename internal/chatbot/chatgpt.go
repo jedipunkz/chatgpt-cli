@@ -28,8 +28,10 @@ func (b *ChatBot) GenerateResponse() (string, error) {
 	resp, err := b.client.CreateChatCompletion(
 		context.Background(),
 		openai.ChatCompletionRequest{
-			Model:    openai.GPT3Dot5Turbo,
-			Messages: b.messages,
+			Model:       openai.GPT3Dot5Turbo,
+			Messages:    b.messages,
+			MaxTokens:   800,
+			Temperature: 0.8,
 		},
 	)
 
