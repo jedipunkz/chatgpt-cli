@@ -1,6 +1,6 @@
 # Go ChatGPT Client
 
-This project is a command-line interface (CLI) that allows continuous conversation with OpenAI's GPT-3 model, implemented in Go language using the [go-openai](https://github.com/sashabaranov/go-openai) library. 
+This project is a command-line interface (CLI) that allows continuous conversation with OpenAI's GPT-3 model, implemented in Go language using the [go-openai](https://github.com/sashabaranov/go-openai) library.
 
 ## Getting Started
 
@@ -27,7 +27,8 @@ export OPENAI_API_KEY=your-api-key
 Finally, you can run the program:
 
 ```bash
-go run main.go
+go run main.go -4   / /use openai.GPT4
+go run main.go -3.5 // use openai.GPT3Dot5Turbo
 ```
 
 ## How to Use

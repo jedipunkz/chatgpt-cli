@@ -22,6 +22,23 @@ func main() {
 	}
 	defer rl.Close()
 
+	var version string
+
+	if len(os.Args) > 1 {
+		switch os.Args[1] {
+		case "-4":
+			version = "4"
+		case "-3.5":
+			version = "3.5"
+		default:
+			fmt.Println("Invalid version specified! Use -4 or -3.5.")
+			return
+		}
+	} else {
+		fmt.Println("No version specified, defaulting to 4.")
+		version = "4"
+	}
+
 	bot := chatbot.NewChatBot(os.Getenv("OPENAI_API_KEY"))
 
 	for {
@@ -36,7 +53,7 @@ func main() {
 
 		bot.AddUserMessage(userInput)
 
-		aiResponse, err := bot.GenerateResponse()
+		aiResponse, err := bot.GenerateResponse(version)
 		if err != nil {
 			fmt.Printf("ChatCompletion error: %v\n", err)
 			continue
